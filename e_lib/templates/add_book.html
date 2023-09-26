@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block element%}
+<style>
+    main{
+        background-color: azure;
+        padding: 10px;
+        border: 1px  solid rgb(156, 175, 187);
+    }
+    input[type="submit"]{
+        padding: 10px;
+        border: 1px solid lightgray;
+        border-radius: 10px;
+        background-color: rgb(59, 202, 200);
+        width:80px;
+        font-weight: bold;
+    }
+        input[type="submit"]:hover{
+            background-color: rgb(2, 85, 144);
+            zoom: 110%;
+    }
+    
+    #loginredirect{
+        font-size: large;
+        color: black;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    
+    .containerbutton{
+        display: flex;
+        align-items: center;
+        justify-content: center;    }
+        
+</style>
+{% if user.is_authenticated %}
+{% comment %} {%if %} {% endcomment %}
+<main class="container1">
+    {% if sudmitted%}
+        your book was sumitted successfully
+
+    {%else%}
+        <form action="" method="POST" enctype= "multipart/form-data">
+            {%csrf_token%}
+            {{ form.as_p }}
+        <input type="submit" value="Add">    
+        </form>
+        
+    {%endif%}
+{%else%}
+<div class = container1>
+<h1 >Sorry!! You must be Logged in as <b>Teacher</b> to be able to access the content</h1>
+<div class = containerbutton>
+<button><a id = loginredirect href="{% url 'login' %}">Login</a></button>
+</div></div>
+<script>
+
+    // window.onload = function() {
+    //     alert("Please log in to access the content.");
+    // };
+    // window.location.href = "{% url 'login' %}"; 
+
+</script>
+
+{%endif%}
+
+    
+ 
+</main>
+{% endblock %}
