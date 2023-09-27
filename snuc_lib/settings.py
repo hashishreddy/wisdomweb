@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-f&%r&^6f)tgs%qw%j0-@xbvx0fxgk!#+kp50t%i)murus7alj9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -133,7 +133,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    
+    os.path.join(BASE_DIR, 'static'),
     )
 
 # Default primary key field type
@@ -144,7 +144,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # settings.py
 MEDIA_ROOT = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 
 
 # AUTH_USER_MODEL = 'e_lib.CustomUser'
@@ -164,4 +166,5 @@ ASGI_APPLICATION = "snuc_lib.asgi.application"
 # ASGI_APPLICATION = "snuc_lib.routing.application"
 
 
-
+# /Users/hashishreddy/Desktop/my project/snuc_lib
+# STATIC_ROOT = '/Users/hashishreddy/Desktop/my project/snuc_lib/static'
